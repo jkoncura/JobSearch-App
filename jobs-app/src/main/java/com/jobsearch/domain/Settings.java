@@ -1,10 +1,14 @@
 package com.jobsearch.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
 
-public class Settings {
+public class Settings implements Serializable {
+	
+	private static final long serialVersionUID = 4485178241976256365L;
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
