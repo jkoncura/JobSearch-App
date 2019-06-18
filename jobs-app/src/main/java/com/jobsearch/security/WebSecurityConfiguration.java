@@ -28,13 +28,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// what access should I give you
-		http.csrf().disable()
+		http
 			.authorizeRequests()
 			.antMatchers("/").permitAll() //permit anyone to see the homepage (root url)
 			.antMatchers("/login").permitAll()
 			.anyRequest().hasRole("USER").and()
 			.formLogin()
 				.loginPage("/login")
+				.defaultSuccessUrl("/dashboard")
 				.permitAll()
 			.and()
 			.logout()
