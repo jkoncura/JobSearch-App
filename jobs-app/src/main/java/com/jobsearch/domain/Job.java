@@ -25,7 +25,6 @@ public class Job implements Serializable {
 	@ManyToOne
 	private User user;
 	
-	
 	public Long getId() {
 		return id;
 	}
@@ -50,6 +49,4 @@ public class Job implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
 }
