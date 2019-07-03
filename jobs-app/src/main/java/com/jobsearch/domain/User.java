@@ -13,8 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.jobsearch.security.Authority;
-
 @Entity
 @Table(name = "APP_USER")
 public class User implements Serializable {
@@ -28,7 +26,7 @@ public class User implements Serializable {
 	private String username;
 	private String password;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy = "user")
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy ="user")
 	private Set<Authority> authorities = new HashSet<>();
 	
 	public Long getId() {
@@ -58,6 +56,7 @@ public class User implements Serializable {
 	public Set<Authority> getAuthorities() {
 		return authorities;
 	}
+	
 	public void setAuthorities(Set<Authority> authorities) {
 		this.authorities = authorities;
 	}

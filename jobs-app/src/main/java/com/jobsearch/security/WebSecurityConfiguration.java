@@ -22,24 +22,28 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 	public PasswordEncoder getPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
-	  
-	@Override  
+	// This method is used to configure authentication details
+	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-	    auth
-	      .userDetailsService(userDetailsService)
-	      .passwordEncoder(getPasswordEncoder());
+		
+//	    auth.inMemoryAuthentication()
+//        	.withUser("trevor")
+//        	.password(getPasswordEncoder().encode("asdfasdf"))
+//        	.authorities("ROLE_USER");
+		
+//	    auth
+//	      .userDetailsService(userDetailsService)
+//	      .passwordEncoder(getPasswordEncoder());
 	        
 	  }
 	
 	 @Override
 	 protected void configure(HttpSecurity http) throws Exception {
-	    http
+	    http.csrf().disable()
 	        .authorizeRequests()
-	          .antMatchers("/").permitAll()
+	          .antMatchers("/login").permitAll()
 	          .anyRequest().hasRole("USER").and()
 	        .formLogin()
-	          .loginPage("/login")
 	          .defaultSuccessUrl("/dashboard")
 	          .permitAll()
 	          .and()

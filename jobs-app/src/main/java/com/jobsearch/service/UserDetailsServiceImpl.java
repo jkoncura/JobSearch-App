@@ -14,15 +14,16 @@ import com.jobsearch.repository.UserRepository;
 public class UserDetailsServiceImpl implements UserDetailsService {
 	
 	@Autowired
-	private UserRepository UserRepository;
+	private UserRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		//access the database, see if there is a user with that name and check if passwords match.
-		User user = UserRepository.findByUsername(username);
+		User user = userRepository.findByUsername(username);
 		if (user == null) {
 			throw new UsernameNotFoundException("Username and password invalid");
  		}
 		return new CustomSecurityUser(user);
+		
 	}
 }

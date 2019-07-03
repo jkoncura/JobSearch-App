@@ -1,15 +1,16 @@
-package com.jobsearch.security;
+package com.jobsearch.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import com.jobsearch.domain.User;
-import com.jobsearch.repository.CustomSecurityUser;
-
+@Entity
+@Table(name = "AUTHORITY")
 public class Authority implements GrantedAuthority {
 	
 	private static final long serialVersionUID = 7982809603640977204L;
@@ -17,7 +18,6 @@ public class Authority implements GrantedAuthority {
 	private String authority;
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private Long id;
 	
 	@ManyToOne

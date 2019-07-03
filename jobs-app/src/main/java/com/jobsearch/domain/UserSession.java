@@ -3,9 +3,13 @@ package com.jobsearch.domain;
 import java.io.Serializable;
 
 import javax.crypto.Mac;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "USER_SESSION")
 public class UserSession implements Serializable  {
 	
 	private static final long serialVersionUID = -2296958178988905642L;

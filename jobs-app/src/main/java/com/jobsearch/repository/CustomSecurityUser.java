@@ -3,8 +3,8 @@ package com.jobsearch.repository;
 import java.util.Set;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.jobsearch.domain.Authority;
 import com.jobsearch.domain.User;
-import com.jobsearch.security.Authority;
 
 public class CustomSecurityUser extends User implements UserDetails {
 	
